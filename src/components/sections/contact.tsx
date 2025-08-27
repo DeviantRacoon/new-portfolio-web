@@ -61,7 +61,7 @@ export function Contact() {
 
   return (
     <section id="contact" className="py-20 sm:py-32">
-      <div className="container grid md:grid-cols-2 gap-12">
+      <div className="container grid md:grid-cols-2 gap-12 max-w-4xl">
         <div className="space-y-4">
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">{contactInfo.title}</h2>
           <p className="text-lg text-muted-foreground">{contactInfo.description}</p>

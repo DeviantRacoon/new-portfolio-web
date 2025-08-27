@@ -4,9 +4,9 @@ import { experience, aboutMe } from "@/lib/data";
 export function Experience() {
   return (
     <section id="experience" className="bg-muted/50 py-20 sm:py-32">
-      <div className="container grid md:grid-cols-2 gap-12">
+      <div className="container grid md:grid-cols-2 gap-12 max-w-5xl">
         <div>
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-8">My Journey</h2>
+          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-8">Mi Trayectoria</h2>
           <div className="relative flex flex-col gap-8 before:absolute before:left-[1.15rem] before:top-0 before:h-full before:w-px before:bg-border">
             {experience.map((item) => (
               <div key={item.company} className="relative flex items-start gap-6">
@@ -25,15 +25,15 @@ export function Experience() {
         </div>
 
         <div>
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-8">About Me</h2>
+          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-8">Sobre Mí</h2>
           <Card>
             <CardHeader>
-              <CardTitle>A Little More About Me</CardTitle>
+              <CardTitle>Un Poco Más Sobre Mí</CardTitle>
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground mb-6">{aboutMe.description}</p>
               
-              <h4 className="font-semibold mb-4">Core Skills</h4>
+              <h4 className="font-semibold mb-4">Habilidades Principales</h4>
               <div className="grid grid-cols-2 gap-4">
                 {aboutMe.skills.map(skill => (
                   <div key={skill.name} className="flex items-center gap-2 text-sm">

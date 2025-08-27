@@ -1,10 +1,10 @@
-import { Briefcase, Code, GitBranch, Github, HeartHandshake, Linkedin, Mail, MapPin, Search, Twitter, Users, Zap } from "lucide-react";
+import { Briefcase, Code, GitBranch, Github, Linkedin, Mail, MapPin, Twitter, Users, Zap, Award, Target, TrendingUp } from "lucide-react";
 
 export const personalData = {
   name: "Alex Doe",
-  title: "I build secure and scalable platforms for fintech and logistics.",
-  summary: "As a seasoned backend developer with over a decade of experience, I specialize in creating robust, high-performance systems that drive business growth. My expertise lies in architecting secure, scalable solutions for the demanding fintech and logistics sectors, ensuring reliability and efficiency from the ground up.",
-  profilePicture: "https://picsum.photos/200/200",
+  title: "Construyo plataformas seguras y escalables para fintech y logística.",
+  summary: "Como un experimentado desarrollador backend con más de una década de experiencia, me especializo en crear sistemas robustos y de alto rendimiento que impulsan el crecimiento empresarial. Mi experiencia radica en la arquitectura de soluciones seguras y escalables para los exigentes sectores de fintech y logística, garantizando la fiabilidad y eficiencia desde cero.",
+  profilePicture: "https://picsum.photos/400/400",
   profilePictureHint: "man smiling",
   cvUrl: "/alex-doe-cv.pdf",
   contact: {
@@ -19,59 +19,55 @@ export const personalData = {
 };
 
 export const navigationLinks = [
-  { label: "Case Studies", href: "#case-studies" },
-  { label: "Services", href: "#services" },
-  { label: "About Me", href: "#experience" },
-  { label: "Contact", href: "#contact" },
+  { label: "Estudios de Caso", href: "#case-studies" },
+  { label: "Logros", href: "#achievements" },
+  { label: "Sobre Mí", href: "#experience" },
+  { label: "Contacto", href: "#contact" },
 ];
 
-export const services = [
+export const achievements = [
   {
-    title: "Architecture & Auditing",
-    description: "In-depth analysis of your existing systems to identify bottlenecks, security vulnerabilities, and scalability issues. I provide a comprehensive report and a strategic roadmap for improvement.",
-    features: ["System architecture review", "Security vulnerability assessment", "Performance bottleneck analysis", "Scalability planning"],
-    icon: Search,
-  },
-  {
-    title: "Backend Development",
-    description: "End-to-end backend development, from database design to API implementation. I build secure, efficient, and scalable systems tailored to your specific business needs using modern technologies.",
-    features: ["Custom API development (REST/GraphQL)", "Database design and optimization", "Microservices architecture", "Third-party service integration"],
-    icon: Code,
-  },
-  {
-    title: "Technical UX & Performance",
-    description: "Optimizing the technical aspects of user experience, focusing on speed, reliability, and seamless interactions. I ensure your platform is not just functional but also fast and enjoyable to use.",
-    features: ["Core Web Vitals optimization", "API response time reduction", "Database query optimization", "Infrastructure fine-tuning"],
+    title: "Reducción de Latencia del 90%",
+    description: "Reduje la latencia de transacciones en un 90% (de 2s a 200ms) para una pasarela de pago, mejorando la experiencia del usuario.",
     icon: Zap,
   },
   {
-    title: "Maintenance & SLAs",
-    description: "Ongoing support and maintenance to ensure your systems run smoothly and securely. I offer Service Level Agreements (SLAs) for guaranteed response times and proactive monitoring.",
-    features: ["24/7 system monitoring", "Regular security patching", "Performance tuning", "Dedicated support channel"],
-    icon: HeartHandshake,
+    title: "Aumento de Capacidad de 10x",
+    description: "Lideré la re-arquitectura de un sistema monolítico a microservicios, aumentando la capacidad de procesamiento de transacciones en 10 veces.",
+    icon: TrendingUp,
+  },
+  {
+    title: "Tasa de Fallo de Transacción <0.1%",
+    description: "Disminuí la tasa de fallo en transacciones de un 15% a menos del 0.1%, aumentando significativamente los ingresos.",
+    icon: Target,
+  },
+  {
+    title: "Premio al Innovador del Año",
+    description: "Recibí el premio 'Innovador del Año' de PayCore Inc. por mi trabajo en la plataforma de pagos de próxima generación.",
+    icon: Award,
   },
 ];
 
 export const caseStudies = [
   {
-    title: "Fintech Payment Gateway Overhaul",
+    title: "Revisión de Pasarela de Pagos Fintech",
     client: "PayCore Inc.",
-    problem: "PayCore's legacy payment gateway was struggling with high latency (avg. 2s/transaction) and frequent downtime during peak hours, leading to a 15% transaction failure rate and significant revenue loss.",
-    process: "Led the re-architecture from a monolithic PHP backend to a microservices-based system using Go and gRPC. Implemented a distributed database strategy with CockroachDB for resilience and horizontal scaling. Introduced a message queue (Kafka) to decouple services and handle transaction processing asynchronously.",
-    result: "Reduced average transaction latency by 90% (to ~200ms), eliminated downtime during peaks, and cut the transaction failure rate to less than 0.1%. The new architecture supports 10x the previous transaction volume.",
-    role: "Lead Backend Architect",
+    problem: "La pasarela de pago heredada de PayCore tenía problemas con alta latencia (promedio de 2s/transacción) y tiempo de inactividad frecuente durante las horas pico, lo que llevaba a una tasa de fallo de transacción del 15% y una pérdida significativa de ingresos.",
+    process: "Lideré la re-arquitectura de un backend monolítico en PHP a un sistema basado en microservicios usando Go y gRPC. Implementé una estrategia de base de datos distribuida con CockroachDB para resiliencia y escalado horizontal. Introduje una cola de mensajes (Kafka) para desacoplar servicios y manejar el procesamiento de transacciones de forma asíncrona.",
+    result: "Reducción de la latencia promedio de transacción en un 90% (a ~200ms), eliminación del tiempo de inactividad durante los picos y reducción de la tasa de fallo de transacción a menos del 0.1%. La nueva arquitectura soporta 10 veces el volumen de transacciones anterior.",
+    role: "Arquitecto Backend Principal",
     stack: ["Go", "gRPC", "Kafka", "CockroachDB", "Kubernetes", "Prometheus"],
     image: "https://picsum.photos/600/400",
     imageHint: "abstract tech",
     link: "#",
   },
   {
-    title: "Real-time Logistics Tracking Platform",
+    title: "Plataforma de Seguimiento Logístico en Tiempo Real",
     client: "ShipSwift Logistics",
-    problem: "ShipSwift needed a system to provide real-time tracking for over 50,000 daily shipments. Their existing batch-processing system had a data lag of up to 15 minutes, causing customer dissatisfaction.",
-    process: "Designed and built a new event-driven platform using Elixir and Phoenix LiveView for real-time updates. Utilized WebSockets for efficient client-server communication. Integrated with multiple third-party GPS and IoT data providers, normalizing data streams into a unified format.",
-    result: "Achieved sub-second tracking data latency. The platform now handles over 1 million tracking updates per hour and has improved customer satisfaction scores by 40%. Operational costs were reduced by 25% due to more efficient routing.",
-    role: "Senior Backend Engineer",
+    problem: "ShipSwift necesitaba un sistema para proporcionar seguimiento en tiempo real para más de 50,000 envíos diarios. Su sistema de procesamiento por lotes existente tenía un retraso de datos de hasta 15 minutos, causando insatisfacción en el cliente.",
+    process: "Diseñé y construí una nueva plataforma orientada a eventos usando Elixir y Phoenix LiveView para actualizaciones en tiempo real. Utilicé WebSockets para una comunicación eficiente cliente-servidor. Integré con múltiples proveedores de datos GPS e IoT de terceros, normalizando los flujos de datos en un formato unificado.",
+    result: "Se logró una latencia de datos de seguimiento inferior a un segundo. La plataforma ahora maneja más de 1 millón de actualizaciones de seguimiento por hora y ha mejorado los puntajes de satisfacción del cliente en un 40%. Los costos operativos se redujeron en un 25% debido a un enrutamiento más eficiente.",
+    role: "Ingeniero Backend Senior",
     stack: ["Elixir", "Phoenix LiveView", "PostgreSQL", "RabbitMQ", "Docker"],
     image: "https://picsum.photos/600/401",
     imageHint: "logistics map",
@@ -81,45 +77,45 @@ export const caseStudies = [
 
 export const experience = [
   {
-    role: "Lead Backend Architect",
+    role: "Arquitecto Backend Principal",
     company: "PayCore Inc.",
-    period: "2020 - Present",
-    description: "Spearheaded the complete overhaul of the payment processing platform, leading to a 10x increase in transaction capacity and a 90% reduction in latency. Mentored a team of 8 backend engineers.",
+    period: "2020 - Presente",
+    description: "Lideré la revisión completa de la plataforma de procesamiento de pagos, lo que llevó a un aumento de 10x en la capacidad de transacciones y una reducción del 90% en la latencia. Supervisé a un equipo de 8 ingenieros backend.",
     icon: Briefcase,
   },
   {
-    role: "Senior Backend Engineer",
+    role: "Ingeniero Backend Senior",
     company: "ShipSwift Logistics",
     period: "2017 - 2020",
-    description: "Developed the core real-time tracking system, improving data latency from 15 minutes to under a second. Optimized database queries, reducing server load by 60%.",
+    description: "Desarrollé el sistema central de seguimiento en tiempo real, mejorando la latencia de los datos de 15 minutos a menos de un segundo. Optimicé las consultas de la base de datos, reduciendo la carga del servidor en un 60%.",
     icon: Briefcase,
   },
   {
-    role: "Software Engineer",
+    role: "Ingeniero de Software",
     company: "Innovate Solutions",
     period: "2014 - 2017",
-    description: "Contributed to various client projects, primarily focusing on building RESTful APIs and integrating third-party services for early-stage startups.",
+    description: "Contribuí a varios proyectos de clientes, centrándome principalmente en la creación de API RESTful y la integración de servicios de terceros para startups en etapa inicial.",
     icon: Briefcase,
   },
 ];
 
 export const testimonials = [
   {
-    quote: "Alex is a world-class engineer. His ability to dissect complex problems and deliver elegant, scalable solutions is unparalleled. He transformed our entire infrastructure, and the results speak for themselves.",
+    quote: "Alex es un ingeniero de clase mundial. Su capacidad para analizar problemas complejos y ofrecer soluciones elegantes y escalables es inigualable. Transformó toda nuestra infraestructura, y los resultados hablan por sí mismos.",
     name: "Jane Smith",
     title: "CTO, PayCore Inc.",
     image: "https://picsum.photos/100/100",
     imageHint: "professional woman",
   },
   {
-    quote: "Working with Alex was a game-changer. He not only delivered a rock-solid technical solution but also provided invaluable strategic insights that helped shape our product roadmap. A true professional.",
+    quote: "Trabajar con Alex fue un cambio de juego. No solo entregó una solución técnica sólida, sino que también proporcionó información estratégica invaluable que ayudó a dar forma a nuestra hoja de ruta del producto. Un verdadero profesional.",
     name: "John Davis",
-    title: "Head of Product, ShipSwift Logistics",
+    title: "Jefe de Producto, ShipSwift Logistics",
     image: "https://picsum.photos/100/101",
     imageHint: "professional man",
   },
   {
-    quote: "I've rarely seen a developer with such a deep understanding of both the technical and business aspects of a project. Alex's contributions were critical to our success.",
+    quote: "Rara vez he visto a un desarrollador con un entendimiento tan profundo de los aspectos técnicos y de negocio de un proyecto. Las contribuciones de Alex fueron críticas para nuestro éxito.",
     name: "Emily White",
     title: "CEO, Innovate Solutions",
     image: "https://picsum.photos/100/102",
@@ -128,22 +124,22 @@ export const testimonials = [
 ];
 
 export const aboutMe = {
-  description: "I'm a pragmatic engineer driven by a passion for solving complex puzzles. My approach is rooted in a deep understanding of computer science fundamentals, combined with a decade of hands-on experience in the fast-paced worlds of fintech and logistics. I believe in building not just for today's needs, but for tomorrow's scale. Outside of coding, I'm an avid hiker and a voracious reader of sci-fi.",
+  description: "Soy un ingeniero pragmático impulsado por la pasión de resolver acertijos complejos. Mi enfoque se basa en un profundo conocimiento de los fundamentos de la informática, combinado con una década de experiencia práctica en los vertiginosos mundos de la tecnología financiera y la logística. Creo en construir no solo para las necesidades de hoy, sino para la escala del mañana. Fuera de la codificación, soy un ávido excursionista y un voraz lector de ciencia ficción.",
   skills: [
     { name: "Go", icon: GitBranch },
     { name: "Elixir", icon: GitBranch },
     { name: "PostgreSQL", icon: GitBranch },
     { name: "Kubernetes", icon: GitBranch },
-    { name: "System Design", icon: Users },
-    { name: "Cloud Architecture (GCP/AWS)", icon: Zap },
+    { name: "Diseño de Sistemas", icon: Users },
+    { name: "Arquitectura en la Nube (GCP/AWS)", icon: Zap },
   ],
   location: "San Francisco, CA (PST)",
   icon: MapPin,
 };
 
 export const contactInfo = {
-  title: "Let's build something great together.",
-  description: "Have a project in mind, or just want to chat about technology? I'm always open to connecting with like-minded people. Fill out the form, and I'll get back to you within 24 hours.",
+  title: "Construyamos algo grandioso juntos.",
+  description: "Tienes un proyecto en mente o simplemente quieres charlar sobre tecnología? Siempre estoy abierto a conectar con personas afines. Rellena el formulario y te responderé en 24 horas.",
   email: "hello@alexdoe.com",
   icon: Mail,
 };

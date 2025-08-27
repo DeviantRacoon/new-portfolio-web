@@ -11,12 +11,12 @@ import { testimonials } from "@/lib/data";
 
 export function Testimonials() {
   return (
-    <section id="testimonials" className="py-20 sm:py-32">
-      <div className="container">
+    <section id="testimonials" className="bg-muted/50 py-20 sm:py-32">
+      <div className="container max-w-4xl">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">What My Clients Say</h2>
+          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Lo que dicen mis clientes</h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            Trusted by product leaders and executives at growing companies.
+            Con la confianza de líderes de producto y ejecutivos de empresas en crecimiento.
           </p>
         </div>
         <Carousel

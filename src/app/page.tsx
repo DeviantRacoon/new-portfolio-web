@@ -1,7 +1,7 @@
 import { Header } from "@/components/header";
 import { Hero } from "@/components/sections/hero";
 import { CaseStudies } from "@/components/sections/case-studies";
-import { Services } from "@/components/sections/services";
+import { Achievements } from "@/components/sections/achievements";
 import { Experience } from "@/components/sections/experience";
 import { Testimonials } from "@/components/sections/testimonials";
 import { Contact } from "@/components/sections/contact";
@@ -14,7 +14,7 @@ export default function Home() {
       <main className="flex-1">
         <Hero />
         <CaseStudies />
-        <Services />
+        <Achievements />
         <Experience />
         <Testimonials />
         <Contact />
