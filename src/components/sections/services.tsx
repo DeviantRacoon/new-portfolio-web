@@ -25,7 +25,6 @@ export function Services() {
               </CardHeader>
               <CardContent className="flex flex-col flex-1">
                 <CardDescription className="mb-6">{service.description}</CardDescription>
-                <p className="text-2xl font-bold mb-4">From {service.price}</p>
                 <ul className="space-y-2 text-sm text-muted-foreground mt-auto">
                   {service.features.map((feature) => (
                     <li key={feature} className="flex items-start">

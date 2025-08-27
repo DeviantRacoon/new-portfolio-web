@@ -4,6 +4,9 @@ export const personalData = {
   name: "Alex Doe",
   title: "I build secure and scalable platforms for fintech and logistics.",
   summary: "As a seasoned backend developer with over a decade of experience, I specialize in creating robust, high-performance systems that drive business growth. My expertise lies in architecting secure, scalable solutions for the demanding fintech and logistics sectors, ensuring reliability and efficiency from the ground up.",
+  profilePicture: "https://picsum.photos/200/200",
+  profilePictureHint: "man smiling",
+  cvUrl: "/alex-doe-cv.pdf",
   contact: {
     email: "hello@alexdoe.com",
     tel: "+1 123 456 7890",
@@ -25,28 +28,24 @@ export const navigationLinks = [
 export const services = [
   {
     title: "Architecture & Auditing",
-    price: "$5,000",
     description: "In-depth analysis of your existing systems to identify bottlenecks, security vulnerabilities, and scalability issues. I provide a comprehensive report and a strategic roadmap for improvement.",
     features: ["System architecture review", "Security vulnerability assessment", "Performance bottleneck analysis", "Scalability planning"],
     icon: Search,
   },
   {
     title: "Backend Development",
-    price: "$10,000",
     description: "End-to-end backend development, from database design to API implementation. I build secure, efficient, and scalable systems tailored to your specific business needs using modern technologies.",
     features: ["Custom API development (REST/GraphQL)", "Database design and optimization", "Microservices architecture", "Third-party service integration"],
     icon: Code,
   },
   {
     title: "Technical UX & Performance",
-    price: "$7,500",
     description: "Optimizing the technical aspects of user experience, focusing on speed, reliability, and seamless interactions. I ensure your platform is not just functional but also fast and enjoyable to use.",
     features: ["Core Web Vitals optimization", "API response time reduction", "Database query optimization", "Infrastructure fine-tuning"],
     icon: Zap,
   },
   {
     title: "Maintenance & SLAs",
-    price: "$3,000",
     description: "Ongoing support and maintenance to ensure your systems run smoothly and securely. I offer Service Level Agreements (SLAs) for guaranteed response times and proactive monitoring.",
     features: ["24/7 system monitoring", "Regular security patching", "Performance tuning", "Dedicated support channel"],
     icon: HeartHandshake,

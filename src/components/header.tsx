@@ -23,7 +23,7 @@ export function Header() {
               <Link
                 key={link.label}
                 href={link.href}
-                className="flex items-center text-lg font-medium transition-colors hover:text-foreground/80 sm:text-sm text-foreground/60"
+                className="flex items-center text-lg font-medium transition-colors hover:text-foreground/80 sm:text-sm text-muted-foreground"
               >
                 {link.label}
               </Link>
@@ -31,7 +31,7 @@ export function Header() {
           </nav>
         </div>
         <div className="flex flex-1 items-center justify-end space-x-2">
-          <Button asChild variant="accent">
+          <Button asChild variant="outline">
             <a href="#contact">Hire Me</a>
           </Button>
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
