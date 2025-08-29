@@ -3,11 +3,11 @@ import { experience, aboutMe } from "@/lib/data";
 
 export function Experience() {
   return (
-    <section id="experience" className="bg-muted/50 py-20 sm:py-32">
-      <div className="container grid md:grid-cols-2 gap-12 max-w-5xl">
+    <section id="experience" className="py-20 sm:py-32 scroll-mt-24">
+      <div className="mx-4 md:mx-auto grid md:grid-cols-2 gap-12 max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl">
         <div>
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-8">Mi Trayectoria</h2>
-          <div className="relative flex flex-col gap-8 before:absolute before:left-[1.15rem] before:top-0 before:h-full before:w-px before:bg-border">
+          <div className="relative flex flex-col gap-8 before:absolute before:left-5 sm:before:left-[1.15rem] before:top-0 before:h-full before:w-px before:bg-border">
             {experience.map((item) => (
               <div key={item.company} className="relative flex items-start gap-6">
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground">
@@ -34,7 +34,7 @@ export function Experience() {
               <p className="text-muted-foreground mb-6">{aboutMe.description}</p>
               
               <h4 className="font-semibold mb-4">Habilidades Principales</h4>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
                 {aboutMe.skills.map(skill => (
                   <div key={skill.name} className="flex items-center gap-2 text-sm">
                     <skill.icon className="h-4 w-4 text-primary" />

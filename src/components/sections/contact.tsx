@@ -1,6 +1,6 @@
 "use client";
 
-import { useFormState } from "react-dom";
+import * as React from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -33,7 +33,7 @@ const initialState = {
 };
 
 export function Contact() {
-  const [state, formAction] = useFormState(submitContactForm, initialState);
+  const [state, formAction] = React.useActionState(submitContactForm, initialState);
   const { toast } = useToast();
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -60,8 +60,8 @@ export function Contact() {
   }, [state, toast, form]);
 
   return (
-    <section id="contact" className="py-20 sm:py-32">
-      <div className="container grid md:grid-cols-2 gap-12 max-w-4xl">
+    <section id="contact" className="py-20 sm:py-32 scroll-mt-24">
+      <div className="mx-4 md:mx-auto grid md:grid-cols-2 gap-12 max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl">
         <div className="space-y-4">
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">{contactInfo.title}</h2>
           <p className="text-lg text-muted-foreground">{contactInfo.description}</p>
@@ -114,7 +114,13 @@ export function Contact() {
                   </FormItem>
                 )}
               />
-              <Button type="submit" variant="accent" size="lg" disabled={form.formState.isSubmitting}>
+              <Button
+                type="submit"
+                variant="ghost"
+                size="lg"
+                className="w-full sm:w-auto"
+                disabled={form.formState.isSubmitting}
+              >
                 {form.formState.isSubmitting && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
                 Send Message
               </Button>

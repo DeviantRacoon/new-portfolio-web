@@ -11,9 +11,9 @@ import { testimonials } from "@/lib/data";
 
 export function Testimonials() {
   return (
-    <section id="testimonials" className="bg-muted/50 py-20 sm:py-32">
-      <div className="container max-w-4xl">
-        <div className="mx-auto max-w-2xl text-center">
+    <section id="testimonials" className="py-20 sm:py-32 scroll-mt-24">
+      <div className="mx-4 md:mx-auto max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl">
+        <div className="mx-auto text-center">
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Lo que dicen mis clientes</h2>
           <p className="mt-4 text-lg text-muted-foreground">
             Con la confianza de líderes de producto y ejecutivos de empresas en crecimiento.
@@ -24,11 +24,11 @@ export function Testimonials() {
             align: "start",
             loop: true,
           }}
-          className="w-full max-w-4xl mx-auto mt-12"
+          className="w-full mx-auto mt-12"
         >
           <CarouselContent>
             {testimonials.map((testimonial, index) => (
-              <CarouselItem key={index} className="md:basis-1/2">
+              <CarouselItem key={index} className="w-[20px] md:w-[33.33%] md:basis-1/2 lg:basis-1/3">
                 <div className="p-1">
                   <Card>
                     <CardContent className="flex flex-col items-center text-center p-6">
@@ -51,8 +51,8 @@ export function Testimonials() {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
+          <CarouselPrevious className="hidden sm:flex" />
+          <CarouselNext className="hidden sm:flex" />
         </Carousel>
       </div>
     </section>

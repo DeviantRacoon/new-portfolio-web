@@ -2,9 +2,9 @@ import { Briefcase, Code, GitBranch, Github, Linkedin, Mail, MapPin, Twitter, Us
 
 export const personalData = {
   name: "Alex Doe",
-  title: "Construyo plataformas seguras y escalables para fintech y logística.",
+  title: "Desarrollador Backend.",
   summary: "Como un experimentado desarrollador backend con más de una década de experiencia, me especializo en crear sistemas robustos y de alto rendimiento que impulsan el crecimiento empresarial. Mi experiencia radica en la arquitectura de soluciones seguras y escalables para los exigentes sectores de fintech y logística, garantizando la fiabilidad y eficiencia desde cero.",
-  profilePicture: "https://picsum.photos/400/400",
+  profilePicture: "/profile.webp",
   profilePictureHint: "man smiling",
   cvUrl: "/alex-doe-cv.pdf",
   contact: {

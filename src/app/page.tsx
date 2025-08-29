@@ -11,12 +11,16 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-dvh bg-background">
       <Header />
-      <main className="flex-1">
+      <main className="flex flex-col justify-center items-center ">
         <Hero />
         <CaseStudies />
-        <Achievements />
-        <Experience />
-        <Testimonials />
+        <section className="flex flex-col justify-center items-center w-full bg-muted/50">
+          <Achievements />
+        </section>
+          <Experience />
+        <section className="flex flex-col justify-center items-center w-full bg-muted/50">
+          <Testimonials />
+        </section>
         <Contact />
       </main>
       <Footer />

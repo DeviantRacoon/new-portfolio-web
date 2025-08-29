@@ -24,8 +24,8 @@ export function CaseStudies() {
   }, [search]);
 
   return (
-    <section id="case-studies" className="py-20 sm:py-32">
-      <div className="container max-w-6xl">
+    <section id="case-studies" className="py-20 sm:py-32 scroll-mt-24">
+      <div className="mx-4 md:mx-auto max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Estudios de Caso</h2>
           <p className="mt-4 text-lg text-muted-foreground">
@@ -58,8 +58,8 @@ export function CaseStudies() {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
+          <CarouselPrevious className="hidden sm:flex" />
+          <CarouselNext className="hidden sm:flex" />
         </Carousel>
         {filteredStudies.length === 0 && (
             <p className="text-center text-muted-foreground mt-8">No se encontraron proyectos.</p>
