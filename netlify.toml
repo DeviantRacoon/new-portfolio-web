@@ -1,0 +1,84 @@
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+# Activa el runtime oficial de Next.js en Netlify
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+# Producción: define tu dominio para canónicos/OG/JSON-LD
+[context.production.environment]
+  NEXT_PUBLIC_SITE_URL = "https://www.tudominio.com"
+
+# Previews/branches: evita indexación
+[context.deploy-preview]
+  [[context.deploy-preview.headers]]
+    for = "/*"
+    [context.deploy-preview.headers.values]
+      X-Robots-Tag = "noindex, nofollow"
+
+[context.branch-deploy]
+  [[context.branch-deploy.headers]]
+    for = "/*"
+    [context.branch-deploy.headers.values]
+      X-Robots-Tag = "noindex, nofollow"
+
+# Redirección a HTTPS
+[[redirects]]
+  from = "http://*"
+  to = "https://:splat"
+  status = 301
+  force = true
+
+# Si deseas forzar dominio canónico, descomenta y ajusta:
+# [[redirects]]
+#   from = "https://www.tudominio.com/*"
+#   to = "https://tudominio.com/:splat"
+#   status = 301
+#   force = true
+
+# Seguridad y SEO headers globales
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Strict-Transport-Security = "max-age=63072000; includeSubDomains; preload"
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), interest-cohort=()"
+    # CSP: ajusta dominios si integras analítica/CDN adicional
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://plausible.io https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://picsum.photos https://placehold.co; font-src 'self' data:; connect-src 'self' https://plausible.io https://www.google-analytics.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"
+
+# Cache agresivo para assets estáticos e inmutables
+[[headers]]
+  for = "/_next/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/**/*.(js|css)"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/**/*.(jpg|jpeg|png|webp|avif|gif|ico|svg)"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Cache moderado para SEO assets
+[[headers]]
+  for = "/sitemap.xml"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+
+[[headers]]
+  for = "/robots.txt"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+
+# HTML sin cache persistente (respeta ISR/SSR)
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+

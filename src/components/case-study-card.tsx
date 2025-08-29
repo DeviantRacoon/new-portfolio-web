@@ -28,12 +28,13 @@ export function CaseStudyCard({ study }: CaseStudyCardProps) {
   const [result, setResult] = useState(study.result);
 
   return (
-    <Card className="overflow-hidden h-full flex flex-col transition hover:shadow-lg hover:-translate-y-0.5">
+    <article className="overflow-hidden h-full flex flex-col transition hover:shadow-lg hover:-translate-y-0.5 rounded-lg border bg-card text-card-foreground shadow-sm">
       <Image
         src={study.image}
         alt={study.title}
         width={600}
         height={400}
+        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
         className="w-full h-48 object-cover"
       />
       <CardContent className="p-6 flex flex-col flex-1">
@@ -67,11 +68,11 @@ export function CaseStudyCard({ study }: CaseStudyCardProps) {
         </div>
 
         <Button asChild variant="link" className="px-0 mt-4 self-start">
-          <Link href={study.link}>
+          <Link href={study.link} prefetch>
             Ver Proyecto <ArrowRight className="ml-2 h-4 w-4" />
           </Link>
         </Button>
       </CardContent>
-    </Card>
+    </article>
   );
 }

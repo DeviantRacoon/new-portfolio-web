@@ -1,7 +1,7 @@
 import { Briefcase, Code, GitBranch, Github, Linkedin, Mail, MapPin, Twitter, Users, Zap, Award, Target, TrendingUp } from "lucide-react";
 
 export const personalData = {
-  name: "Jesús Héctor Zavala Inzunza",
+  name: "Héctor Zavala",
   title: "Arquitectura & Optimización",
   summary: "Experto en soluciones escalables y arquitecturas robustas. Me apasiona crear herramientas y procesos que aporten valor y mejoren la experiencia de mis clientes. ¡Construyamos algo grandioso juntos!",
   profilePicture: "/profile.webp",
@@ -80,7 +80,7 @@ export const experience = [
     role: "Desarrollador Senior",
     company: "VOICES",
     period: "2025 - Presente",
-    description: "Apoyo en desarrollo y DevOps, optimización de servidores, gestión de contenedores Docker y microservicios. Capacitación en CI/CD y runners en GitLab para automatizar flujos de trabajo.",
+    description: "Lideré un equipo de desarrollo, diseñando la arquitectura y trabajando en optimización de infraestructura, contenedores Docker y microservicios. Capacité al equipo en CI/CD y runners en GitLab para automatizar flujos de trabajo.",
     icon: Briefcase,
   },
   {

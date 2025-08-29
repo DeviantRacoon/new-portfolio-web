@@ -24,11 +24,11 @@ export function CaseStudies() {
   }, [search]);
 
   return (
-    <section id="case-studies" className="py-20 sm:py-32 scroll-mt-24">
+    <section id="case-studies" aria-labelledby="case-studies-title" className="py-20 sm:py-32 scroll-mt-24">
       <div className="mx-4 md:mx-auto max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl">
         <div className="mx-auto max-w-2xl text-center">
           <span className="inline-block text-xs font-semibold uppercase tracking-widest text-primary/80 bg-primary/10 px-2 py-1 rounded-md">Portafolio</span>
-          <h2 className="mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl bg-gradient-to-r from-primary to-indigo-400 bg-clip-text text-transparent">Estudios de Caso</h2>
+          <h2 id="case-studies-title" className="mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl bg-gradient-to-r from-primary to-indigo-400 bg-clip-text text-transparent">Estudios de Caso</h2>
           <p className="mt-3 text-base sm:text-lg text-muted-foreground">
             Un vistazo a cómo he ayudado a las empresas a superar desafíos y alcanzar sus metas.
           </p>

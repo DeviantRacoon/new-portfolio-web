@@ -15,17 +15,30 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
+  FormDescription,
 } from "@/components/ui/form";
 import { contactInfo } from "@/lib/data";
 import { submitContactForm } from "@/app/actions";
 import { useEffect } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { Loader2 } from "lucide-react";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 
 const formSchema = z.object({
-  name: z.string().min(2, { message: "El nombre debe tener al menos 2 caracteres." }),
-  email: z.string().email({ message: "Por favor ingresa un email válido." }),
-  message: z.string().min(10, { message: "El mensaje debe tener al menos 10 caracteres." }),
+  name: z
+    .string()
+    .trim()
+    .min(2, { message: "El nombre debe tener al menos 2 caracteres." })
+    .max(50, { message: "El nombre no debe exceder 50 caracteres." }),
+  email: z
+    .string()
+    .trim()
+    .email({ message: "Por favor ingresa un email válido." }),
+  message: z
+    .string()
+    .trim()
+    .min(10, { message: "El mensaje debe tener al menos 10 caracteres." })
+    .max(1000, { message: "El mensaje no debe exceder 1000 caracteres." }),
 });
 
 const initialState = {
@@ -39,6 +52,10 @@ export function Contact() {
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
+    mode: "onChange",
+    reValidateMode: "onChange",
+    delayError: 300,
+    shouldFocusError: true,
     defaultValues: {
       name: "",
       email: "",
@@ -59,6 +76,15 @@ export function Contact() {
       }
     }
   }, [state, toast, form]);
+
+  const { isDirty, isValid, isSubmitting } = form.formState;
+  const disabledReason = isSubmitting
+    ? "Enviando..."
+    : !isDirty
+    ? "Primero llena el formulario"
+    : !isValid
+    ? "Corrige los campos con error"
+    : undefined;
 
   return (
     <section id="contact" className="py-20 sm:py-32 scroll-mt-24">
@@ -81,7 +107,7 @@ export function Contact() {
             </CardHeader>
             <CardContent>
           <Form {...form}>
-            <form action={formAction} className="space-y-4">
+            <form action={formAction} noValidate className="space-y-4">
               <FormField
                 control={form.control}
                 name="name"
@@ -89,8 +115,21 @@ export function Contact() {
                   <FormItem>
                     <FormLabel>Nombre</FormLabel>
                     <FormControl>
-                      <Input placeholder="Tu nombre" {...field} />
+                      <Input
+                        placeholder="Tu nombre"
+                        maxLength={50}
+                        autoComplete="name"
+                        className={
+                          form.formState.errors.name
+                            ? "border-destructive focus-visible:ring-destructive"
+                            : (form.formState.dirtyFields.name || form.formState.touchedFields.name)
+                            ? "border-emerald-500 focus-visible:ring-emerald-500"
+                            : undefined
+                        }
+                        {...field}
+                      />
                     </FormControl>
+                    <FormDescription>2–50 caracteres.</FormDescription>
                     <FormMessage />
                   </FormItem>
                 )}
@@ -102,8 +141,21 @@ export function Contact() {
                   <FormItem>
                     <FormLabel>Email</FormLabel>
                     <FormControl>
-                      <Input placeholder="tu.email@ejemplo.com" {...field} />
+                      <Input
+                        placeholder="tu.email@ejemplo.com"
+                        inputMode="email"
+                        autoComplete="email"
+                        className={
+                          form.formState.errors.email
+                            ? "border-destructive focus-visible:ring-destructive"
+                            : (form.formState.dirtyFields.email || form.formState.touchedFields.email)
+                            ? "border-emerald-500 focus-visible:ring-emerald-500"
+                            : undefined
+                        }
+                        {...field}
+                      />
                     </FormControl>
+                    <FormDescription>Usa un email válido.</FormDescription>
                     <FormMessage />
                   </FormItem>
                 )}
@@ -115,22 +167,54 @@ export function Contact() {
                   <FormItem>
                     <FormLabel>Mensaje</FormLabel>
                     <FormControl>
-                      <Textarea placeholder="¿Cómo puedo ayudarte?" rows={5} {...field} />
+                      <Textarea
+                        placeholder="¿Cómo puedo ayudarte?"
+                        rows={5}
+                        maxLength={1000}
+                        className={
+                          form.formState.errors.message
+                            ? "border-destructive focus-visible:ring-destructive"
+                            : (form.formState.dirtyFields.message || form.formState.touchedFields.message)
+                            ? "border-emerald-500 focus-visible:ring-emerald-500"
+                            : undefined
+                        }
+                        {...field}
+                      />
                     </FormControl>
+                    <FormDescription>
+                      {`${(form.watch("message")?.length ?? 0)}/1000 caracteres`}
+                    </FormDescription>
                     <FormMessage />
                   </FormItem>
                 )}
               />
-              <Button
-                type="submit"
-                variant="default"
-                size="lg"
-                className="w-full sm:w-auto"
-                disabled={form.formState.isSubmitting}
-              >
-                {form.formState.isSubmitting && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-                Enviar mensaje
-              </Button>
+              <TooltipProvider delayDuration={200}>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <span
+                      className="inline-flex w-full sm:w-auto"
+                      tabIndex={disabledReason ? 0 : -1}
+                      aria-disabled={!!disabledReason}
+                    >
+                      <Button
+                        type="submit"
+                        variant="default"
+                        size="lg"
+                        className="w-full sm:w-auto"
+                        disabled={!isDirty || !isValid || isSubmitting}
+                        aria-busy={isSubmitting}
+                        title={disabledReason}
+                      >
+                        {isSubmitting && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+                        {isSubmitting ? "Enviando..." : "Enviar mensaje"}
+                      </Button>
+                    </span>
+                  </TooltipTrigger>
+                  {disabledReason ? (
+                    <TooltipContent>{disabledReason}</TooltipContent>
+                  ) : null}
+                </Tooltip>
+              </TooltipProvider>
             </form>
           </Form>
             </CardContent>
