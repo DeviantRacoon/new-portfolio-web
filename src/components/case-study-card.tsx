@@ -2,10 +2,9 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+import { CardContent } from "@/components/ui/card";
 interface CaseStudy {
   title: string;
   client: string;
@@ -68,9 +67,9 @@ export function CaseStudyCard({ study }: CaseStudyCardProps) {
         </div>
 
         <Button asChild variant="link" className="px-0 mt-4 self-start">
-          <Link href={study.link} prefetch>
+          <a href={study.link} target="_blank" rel="noopener noreferrer">
             Ver Proyecto <ArrowRight className="ml-2 h-4 w-4" />
-          </Link>
+          </a>
         </Button>
       </CardContent>
     </article>

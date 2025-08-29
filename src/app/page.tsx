@@ -14,7 +14,6 @@ export default function Home() {
     <div className="flex flex-col min-h-dvh bg-background">
       <Header />
       <main className="flex flex-col justify-center items-center ">
-        {/* JSON-LD para SEO */}
         <PersonJsonLd />
         <WebsiteJsonLd />
         <SmoothScroll/>
