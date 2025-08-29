@@ -27,11 +27,11 @@ export function Hero() {
               Contáctame <Send className="ml-2 h-4 w-4" />
             </a>
           </Button>
-          <Button asChild size="lg" variant="outline">
+          {/* <Button asChild size="lg" variant="outline">
             <a href={personalData.cvUrl} target="_blank" rel="noopener noreferrer">
               Descargar CV <Download className="ml-2 h-4 w-4" />
             </a>
-          </Button>
+          </Button> */}
         </div>
 
         <div className="mt-10 flex justify-start gap-6">
