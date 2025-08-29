@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, Gem } from "lucide-react";
+import { ThemeToggle } from "@/components/theme-toggle";
 import { navigationLinks, personalData } from "@/lib/data";
 
 export function Header() {
@@ -31,8 +32,9 @@ export function Header() {
           </nav>
         </div>
         <div className="flex flex-1 items-center justify-end space-x-2">
-          <Button asChild variant="outline">
-            <a href="#contact">Hire Me</a>
+          <ThemeToggle />
+          <Button asChild>
+            <a href="#contact">Contáctame</a>
           </Button>
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
@@ -64,6 +66,9 @@ export function Header() {
                     {link.label}
                   </Link>
                 ))}
+                <div className="pt-4">
+                  <ThemeToggle />
+                </div>
               </div>
             </SheetContent>
           </Sheet>

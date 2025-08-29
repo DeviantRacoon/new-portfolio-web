@@ -14,8 +14,9 @@ export function Testimonials() {
     <section id="testimonials" className="py-20 sm:py-32 scroll-mt-24">
       <div className="mx-4 md:mx-auto max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl">
         <div className="mx-auto text-center">
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Lo que dicen mis clientes</h2>
-          <p className="mt-4 text-lg text-muted-foreground">
+          <span className="inline-block text-xs font-semibold uppercase tracking-widest text-primary/80 bg-primary/10 px-2 py-1 rounded-md">Testimonios</span>
+          <h2 className="mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl bg-gradient-to-r from-primary to-indigo-400 bg-clip-text text-transparent">Lo que dicen mis clientes</h2>
+          <p className="mt-3 text-base sm:text-lg text-muted-foreground">
             Con la confianza de líderes de producto y ejecutivos de empresas en crecimiento.
           </p>
         </div>
@@ -28,9 +29,9 @@ export function Testimonials() {
         >
           <CarouselContent>
             {testimonials.map((testimonial, index) => (
-              <CarouselItem key={index} className="w-[20px] md:w-[33.33%] md:basis-1/2 lg:basis-1/3">
-                <div className="p-1">
-                  <Card>
+              <CarouselItem key={index} className="basis-full sm:basis-2/3 md:basis-1/2 lg:basis-1/3">
+                <div className="p-2">
+                  <Card className="h-full">
                     <CardContent className="flex flex-col items-center text-center p-6">
                       <Image
                         src={testimonial.image}
@@ -38,13 +39,12 @@ export function Testimonials() {
                         width={80}
                         height={80}
                         className="rounded-full mb-4 border-2 border-primary/20"
-                        data-ai-hint={testimonial.imageHint}
                       />
-                      <blockquote className="text-lg font-medium mb-4">
+                      <blockquote className="text-base sm:text-lg font-medium mb-4 leading-relaxed">
                         &ldquo;{testimonial.quote}&rdquo;
                       </blockquote>
                       <p className="font-semibold">{testimonial.name}</p>
-                      <p className="text-sm text-muted-foreground">{testimonial.title}</p>
+                      <p className="text-xs sm:text-sm text-muted-foreground">{testimonial.title}</p>
                     </CardContent>
                   </Card>
                 </div>

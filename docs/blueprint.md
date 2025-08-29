@@ -8,7 +8,6 @@
 - Experience Timeline: Timeline of professional experience with quantifiable achievements.
 - Testimonial Carousel: Display verifiable testimonials from previous clients.
 - Contact and CTA: Contact form for inquiries and CTA button for scheduling.
-- Content Enhancement Tool: AI powered tool to rewrite a section to make it more impactful. Uses reasoning to decide if an included snippet of technical details is needed.
 
 ## Style Guidelines:
 

@@ -6,9 +6,17 @@ import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { CaseStudy } from "@/lib/data";
-import { ArrowRight, BarChart, Target, Zap } from "lucide-react";
-import { ContentEnhancerDialog } from "./content-enhancer-dialog";
+interface CaseStudy {
+  title: string;
+  client: string;
+  problem: string;
+  process: string;
+  result: string;
+  stack: string[];
+  image: string;
+  link: string;
+}
+import { ArrowRight, Target, Zap } from "lucide-react";
 
 interface CaseStudyCardProps {
   study: CaseStudy;
@@ -20,50 +28,39 @@ export function CaseStudyCard({ study }: CaseStudyCardProps) {
   const [result, setResult] = useState(study.result);
 
   return (
-    <Card className="overflow-hidden h-full flex flex-col">
+    <Card className="overflow-hidden h-full flex flex-col transition hover:shadow-lg hover:-translate-y-0.5">
       <Image
         src={study.image}
         alt={study.title}
         width={600}
         height={400}
         className="w-full h-48 object-cover"
-        data-ai-hint={study.imageHint}
       />
       <CardContent className="p-6 flex flex-col flex-1">
-        <h3 className="text-xl font-bold">{study.title}</h3>
-        <p className="text-sm text-muted-foreground mb-4">{study.client}</p>
+        <h3 className="text-lg sm:text-xl font-bold">{study.title}</h3>
+        <p className="text-xs sm:text-sm text-muted-foreground mb-4">{study.client}</p>
 
         <div className="space-y-4 mt-4 flex-grow">
           <div>
             <div className="flex items-center gap-2 mb-2">
               <Target className="h-5 w-5 text-primary" />
               <h4 className="font-semibold text-sm">Problema</h4>
-              <ContentEnhancerDialog
-                sectionTitle="The Problem"
-                originalContent={problem}
-                onUpdate={setProblem}
-              />
             </div>
-            <p className="text-muted-foreground text-xs line-clamp-3">{problem}</p>
+            <p className="text-muted-foreground text-xs sm:text-sm line-clamp-3 leading-relaxed">{problem}</p>
           </div>
           <div>
             <div className="flex items-center gap-2 mb-2">
               <Zap className="h-5 w-5 text-primary" />
               <h4 className="font-semibold text-sm">Resultado</h4>
-              <ContentEnhancerDialog
-                sectionTitle="The Result"
-                originalContent={result}
-                onUpdate={setResult}
-              />
             </div>
-            <p className="text-muted-foreground text-xs line-clamp-3">{result}</p>
+            <p className="text-muted-foreground text-xs sm:text-sm line-clamp-3 leading-relaxed">{result}</p>
           </div>
         </div>
         
         <div className="mt-4">
             <h4 className="font-semibold mb-2 text-sm">Tech Stack</h4>
             <div className="flex flex-wrap gap-1">
-              {study.stack.map((tech) => (
+              {study.stack.map((tech: string) => (
                 <Badge key={tech} variant="secondary" className="text-xs">{tech}</Badge>
               ))}
             </div>

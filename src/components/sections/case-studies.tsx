@@ -27,8 +27,9 @@ export function CaseStudies() {
     <section id="case-studies" className="py-20 sm:py-32 scroll-mt-24">
       <div className="mx-4 md:mx-auto max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Estudios de Caso</h2>
-          <p className="mt-4 text-lg text-muted-foreground">
+          <span className="inline-block text-xs font-semibold uppercase tracking-widest text-primary/80 bg-primary/10 px-2 py-1 rounded-md">Portafolio</span>
+          <h2 className="mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl bg-gradient-to-r from-primary to-indigo-400 bg-clip-text text-transparent">Estudios de Caso</h2>
+          <p className="mt-3 text-base sm:text-lg text-muted-foreground">
             Un vistazo a cómo he ayudado a las empresas a superar desafíos y alcanzar sus metas.
           </p>
         </div>
@@ -51,8 +52,8 @@ export function CaseStudies() {
         >
           <CarouselContent>
             {filteredStudies.map((study) => (
-              <CarouselItem key={study.title} className="md:basis-1/2 lg:basis-1/3">
-                <div className="p-1 h-full">
+              <CarouselItem key={study.title} className="basis-full sm:basis-2/3 md:basis-1/2 lg:basis-1/3">
+                <div className="p-2 h-full">
                   <CaseStudyCard study={study} />
                 </div>
               </CarouselItem>
