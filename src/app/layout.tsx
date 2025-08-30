@@ -3,6 +3,7 @@ import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 import { ThemeProvider } from "@/components/theme-provider";
 import { inter } from "./fonts";
+import { personalData } from "@/lib/data";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 
@@ -56,9 +57,39 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://hectorzavala.netlify.app";
+
+  const jsonLdPerson = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: personalData.name,
+    jobTitle: personalData.title,
+    url: siteUrl,
+    image: `${siteUrl}${personalData.profilePicture}`,
+    sameAs: personalData.contact.social.map((s) => s.url).filter(Boolean),
+    email: personalData.contact.email,
+    telephone: personalData.contact.tel,
+  };
+
+  const jsonLdWebsite = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Portfolio Héctor Zavala",
+    url: siteUrl,
+    inLanguage: "es",
+  };
   return (
     <html lang="es" className={`${inter.variable} scroll-smooth`} suppressHydrationWarning>
-      <head />
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdPerson) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdWebsite) }}
+        />
+      </head>
       <body className={`${inter.className} font-body antialiased bg-background text-foreground`}>
         <ThemeProvider>
           {children}

@@ -164,7 +164,8 @@ const CarouselContent = React.forwardRef<
         ref={ref}
         className={cn(
           "flex",
-          orientation === "horizontal" ? "-ml-4" : "-mt-4 flex-col",
+          // Evita márgenes negativos en mobile que causan overflow horizontal
+          orientation === "horizontal" ? "sm:-ml-4" : "sm:-mt-4 flex-col",
           className
         )}
         {...props}
